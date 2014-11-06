@@ -11,7 +11,7 @@ gem 'thin'                                    # Nicer server
 # gem 'sinatra', require: nil                   # Required for Sidekiq::Web
 
 # User
-# gem 'devise'                                  # User and Account Management
+gem 'devise'                                  # User and Account Management
 # gem 'pundit'                                  # User Authorization
 # gem 'acts_as_roleable',     '~> 0.4'          # User Roles
 
