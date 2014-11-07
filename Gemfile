@@ -12,7 +12,7 @@ gem 'thin'                                    # Nicer server
 
 # User
 gem 'devise'                                  # User and Account Management
-# gem 'pundit'                                  # User Authorization
+gem 'pundit'                                  # User Authorization
 # gem 'acts_as_roleable',     '~> 0.4'          # User Roles
 
 # Extras
