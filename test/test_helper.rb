@@ -1,10 +1,41 @@
-ENV['RAILS_ENV'] ||= 'test'
+ENV['RAILS_ENV'] = 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
-class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  fixtures :all
+require 'minitest/pride' # awesome colorful output
+require 'minitest/reporters' # fancier output format
+# Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new # enable for detailed output
 
-  # Add more helper methods to be used by all tests here...
+require 'capybara/rails' # integration tests
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
+
+require 'mocha/mini_test'
+
+# Requires supporting ruby files with custom matchers and macros, etc,
+# in test/support/ and its subdirectories.
+Dir[Rails.root.join('test/support/**/*.rb')].each{ |f| require f }
+Ppp::Application.reload_routes!
+
+# Capybara
+class ActionDispatch::IntegrationTest
+  include Capybara::DSL
+end
+
+class ActiveSupport::TestCase
+  ActiveRecord::Migration.check_pending!
+
+  self.use_transactional_fixtures = true
+  self.use_instantiated_fixtures  = false
+end
+
+# Devise
+class ActionController::TestCase
+  include Devise::TestHelpers
+end
+
+# MiniTest optimizations
+class MiniTest::Spec
+  before{ DeferredGarbageCollection.start }
+  after{ DeferredGarbageCollection.reconsider }
 end
