@@ -1,12 +1,16 @@
-Project Potential Planning
-==========================
+PPP
+===
+
+_(thats Project Potential Planning)_
+
+[![Code Climate](https://codeclimate.com/github/elsom25/ppp/badges/gpa.svg)](https://codeclimate.com/github/elsom25/ppp)
 
 Let's track what's happening and who's supposed to work on it.
 
 Setup
 -----
 
-We are using `Ruby v2.1.3`, locally with `sqlite3` and `PhantomJS`. 
+We are using `Ruby v2.1.3`, locally with `sqlite3` and `PhantomJS`.
 
 ### OSX Specific
 
