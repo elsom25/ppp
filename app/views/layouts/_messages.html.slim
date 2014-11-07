@@ -1,5 +1,4 @@
-- flash.each do |name, msg|
-  - if msg.is_a?(String)
-    .alert-box[class="#{name.to_s == 'notice' ? 'success' : 'alert'}" data-alert]
-      div= msg
-      a.close href="#" ×
+- flash.select{ |_,m| m.is_a?(String) }.each do |name, msg|
+  .alert-box[class="#{name.to_s == 'notice' ? 'success' : 'alert'}" data-alert tabindex=0 aria-live='assertive' role='dialogalert']
+    div= msg
+    button.close[href='#' tabindex=0 aria-label='Close Alert'] ×
