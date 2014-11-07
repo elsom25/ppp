@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, skip: [:registrations]
 
   resources :users, only: [:index, :update, :show]
+  resources :projects
 
   authenticated :user do
     devise_scope :user do

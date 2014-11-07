@@ -11,6 +11,8 @@ html lang=I18n.locale.to_s
 
     == javascript_include_tag 'modernizr.min'
     == javascript_include_tag 'feature_tests'
+
+    == javascript_include_tag 'scaffolds', 'data-turbolinks-track' => true
     == javascript_include_tag 'application', 'data-turbolinks-track' => true
 
     == csrf_meta_tags
