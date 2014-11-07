@@ -6,7 +6,7 @@ Let's track what's happening and who's supposed to work on it.
 Setup
 -----
 
-We are using `Ruby v2.1.3`, managed through `RVM`; `sqlite3`; and `PhantomJS`. To setup your system for development, follow the guides below to success. If something doesn't work (or your OS is missing), feel free to update this `README` ;)
+We are using `Ruby v2.1.3`, locally with `sqlite3` and `PhantomJS`. 
 
 ### OSX Specific
 
@@ -27,23 +27,21 @@ We are using `Ruby v2.1.3`, managed through `RVM`; `sqlite3`; and `PhantomJS`. T
 1. Install gems: `bundle install`
 1. Setup your environment variables:
   - create a file in the application root: `.env`
-    - The format of the file is `Key=Value`, with a newline separating each key.
-    - All required keys are below. If a correpsonding value is not specified, talk to Jesse to get the value.
-  - Cookie Secret:
-    - Key = `SECRET_KEY_BASE`, Value = result of `rake secret`
-  - Default production admin user:
-    - Key = `ADMIN_EMAIL`, Value = anything you want
-    - Key = `ADMIN_PASSWORD`, Value = anything you want
+    - `SECRET_KEY_BASE=#{rake secret}`
+    - `ADMIN_EMAIL=#{whatever you want}`
+    - `ADMIN_PASSWORD=#{whatever you want}`
 
 Run
 ---
 
 1. `bundle exec guard`
-2. Feel special!
-3. `exit` to quit (not `ctrl+c`! That only works with `rails s`)
+1. ...
+1. Profit!
 
 Tests
 -----
+
+We're using [MiniTest](https://github.com/seattlerb/minitest) spec style for testing.
 
 * To run all tests: `rake`
 * To run a specific test file: `rake test TEST=test/models/widget_test.rb`
