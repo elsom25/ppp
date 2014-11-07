@@ -15,35 +15,57 @@ gem 'devise'                                  # User and Account Management
 # gem 'pundit'                                  # User Authorization
 # gem 'acts_as_roleable',     '~> 0.4'          # User Roles
 
+# Extras
+gem 'attr_extras'                             # Simplified PORO's
+gem 'duffel'                                  # Better project settings
+gem 'simple_form'                             # A nice form DSL
+gem 'annotate',             '>= 2.6.0'        # Adds some nice annotations to models
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
+# Javascript
+gem 'jquery-rails'                            # jQuery
+gem 'jquery-turbolinks'                       # Turbolinks jQuery adapter
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0',          group: :doc
+# Assets
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'uglifier',             '>= 1.3.0'
+gem 'slim-rails'
+gem 'compass-rails'
+gem 'foundation-rails',     '~> 5.3'
+gem 'font-awesome-rails'
 
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+group :development do
+  gem 'spring'                                # Rails quick loader
+  gem 'better_errors'                         # Nice errors screens
+  gem 'binding_of_caller'                     # Req'd for `better_errors`
+end
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+group :development, :test do
+  gem 'minitest-spec-rails'                   # Testing framework
+  gem 'minitest-reporters'
 
-# Use unicorn as the app server
-# gem 'unicorn'
+  gem 'capybara'                              # Integration Tests
+  gem 'capybara_minitest_spec'                # Capybara integration w/ MiniTest
+  gem 'poltergeist'                           # Capybara headless JS driver
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+  gem 'mocha'                                 # Stubbing library
+  gem 'factory_girl_rails', '~> 4.0'          # Testing factories
 
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+  gem 'quiet_assets'                          # Reduces console output
 
+  gem 'guard'                                 # Handles project changes while app running
+  gem 'guard-bundler'
+  gem 'guard-rails'
+  gem 'guard-sidekiq'
+  gem 'guard-minitest'
+
+  # TEMP: Handle version issues;
+  # Makes the console much nicer and provices nice dev tools
+  gem 'jazz_hands',         github: 'nixme/jazz_hands',
+                            branch: 'bring-your-own-debugger'
+  gem 'pry-byebug'
+end
+
+group :staging, :production do
+  gem 'rails_12factor'                        # Allow heroku to compile assets
+end
