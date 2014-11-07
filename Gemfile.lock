@@ -320,7 +320,7 @@ DEPENDENCIES
   duffel
   factory_girl_rails (~> 4.0)
   font-awesome-rails
-  foundation-rails (~> 5.3)
+  foundation-rails (~> 5.4)
   guard
   guard-bundler
   guard-minitest
