@@ -1,0 +1,28 @@
+// ============================================================================
+// Simple Variables
+// ----------------------------------------------------------------------------
+// Define particular attributes, but not set to a "style"
+//
+
+// Colours
+$off-white:          #eee;
+$light-gray:         #ccc;
+$med-gray:           #999;
+$dark-gray:          #444;
+$off-black:          #222;
+
+$blue:               #268ddf;
+$red:                #af2229;
+$purple:             #af06be;
+$purple-gray:        #5c5173;
+
+// ============================================================================
+// Style Variables
+// ----------------------------------------------------------------------------
+// Sets particular style requirements
+//
+
+$primary-color:         $red;
+$secondary-color:       mix($red, $med-gray);
+
+$font-color:            $dark-gray;

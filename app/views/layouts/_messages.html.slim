@@ -1,0 +1,5 @@
+- flash.each do |name, msg|
+  - if msg.is_a?(String)
+    .alert-box[class="#{name.to_s == 'notice' ? 'success' : 'alert'}" data-alert]
+      div= msg
+      a.close href="#" ×

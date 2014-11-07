@@ -56,7 +56,6 @@ group :development, :test do
   gem 'guard'                                 # Handles project changes while app running
   gem 'guard-bundler'
   gem 'guard-rails'
-  gem 'guard-sidekiq'
   gem 'guard-minitest'
 
   # TEMP: Handle version issues;

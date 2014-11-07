@@ -1,0 +1,17 @@
+nav.top-bar[data-topbar]
+  /! Title Area
+  ul.title-area
+    li.name
+      h1= link_to t('app.title'), root_path
+    li.toggle-topbar.menu-icon: a href='#'
+      span Menu
+
+  /! Content
+  .top-bar-section
+    ul.right
+      - if user_signed_in?
+        = nav_link 'Users', users_path
+        = nav_link current_user.name || 'Me', user_path(current_user)
+        = nav_link t('auth.logout'), destroy_user_session_path, method: 'delete'
+      - else
+        = nav_link t('auth.login'), new_user_session_path

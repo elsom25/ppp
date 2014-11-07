@@ -3,5 +3,14 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :update, :show]
 
-  root to: 'users#index'
+  authenticated :user do
+    devise_scope :user do
+      root to: 'users#index'
+    end
+  end
+  unauthenticated do
+    devise_scope :user do
+      root to: 'devise/sessions#new', as: 'unauthenticated'
+    end
+  end
 end

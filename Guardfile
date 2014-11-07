@@ -7,10 +7,6 @@ guard :rails do
   watch(%r{^(config|lib)/.*})
 end
 
-guard :sidekiq, environment: :development do
-  watch(%r{^workers/(.+)\.rb$})
-end
-
 guard :minitest do
   watch(%r{^test/test_helper\.rb$}) { 'test' }
   watch(%r{^app/controllers/application_controller\.rb$}) { 'test/controllers' }

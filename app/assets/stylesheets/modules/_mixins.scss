@@ -1,0 +1,38 @@
+@mixin simple-link($normal, $hover:false) {
+  @include link-colors($normal, $hover);
+  &:active { position:relative; top:1px; }
+  &:hover, &:focus { color:$normal; }
+}
+
+@mixin vertical-align($offset:0%) {
+  @include translateY(-50% + $offset); position:relative; top:50%;
+}
+
+@mixin animation($value) {
+  @include browser-prefix(animation, $value);
+}
+
+@mixin animation-delay($value) {
+  @include browser-prefix(animation-delay, $value);
+}
+
+@mixin browser-prefix($prop, $value) {
+  @each $vendor in '-webkit-', '-moz-', '-ms-', '-o-', '' {
+    #{$vendor}#{$prop}: $value;
+  }
+}
+
+// Media Query Ranges
+// $small-range: (0em, 40em);
+// $medium-range: (40.063em, 64em);
+// $large-range: (64.063em, 90em);
+// $xlarge-range: (90.063em, 120em);
+// $xxlarge-range: (120.063em);
+@mixin respond-to($media) {
+  @if $media == medium {
+    @media #{$medium-up} { @content; }
+  }
+  @elseif $media == large {
+    @media #{$large-up} { @content; }
+  }
+}

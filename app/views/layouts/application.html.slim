@@ -1,0 +1,34 @@
+doctype html
+html lang=I18n.locale.to_s
+  head
+    meta charset='utf-8'
+    meta name='viewport' content='width=device-width, initial-scale=1.0'
+    meta name='description' content=(content_for?(:description) ? yield(:description) : t('app.title'))
+
+    title= content_for?(:title) ? "#{yield(:title)} | #{t('app.title')}" : t('app.title')
+
+    == stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+
+    == javascript_include_tag 'modernizr.min'
+    == javascript_include_tag 'feature_tests'
+    == javascript_include_tag 'application', 'data-turbolinks-track' => true
+
+    == csrf_meta_tags
+    == yield :head
+
+  body[data-controller=controller.controller_name data-action=action_name]
+    .loading-indicator[style='display:none;']
+      .spinner
+        .cube1
+        .cube2
+        i.ie-spinner.fa.fa-spinner.fa-spin.fa-3x[style='display:none;']
+    .body-wrap
+      header.root-nav.contain-to-grid
+        == render 'layouts/navigation'
+      main
+        == render 'layouts/messages'
+        .content-wrap[role='main']
+          == content_for?(:content) ? yield(:content) : yield
+
+    / Javascript files
+    == javascript_include_tag 'foundation_setup', 'data-turbolinks-track' => true
