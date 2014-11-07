@@ -1,6 +1,7 @@
 class UserPolicy < ApplicationPolicy
   def index?   ; true ; end
   def destroy? ; true ; end
+  def update?  ; user == record ; end
 
   class Scope
     vattr_initialize :user, :scope

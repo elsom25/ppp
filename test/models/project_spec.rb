@@ -14,6 +14,9 @@ describe Project do
 
       project = build :project, starts_at: Date.today, ends_at: (Date.today - 1)
       project.wont_be :valid?
+
+      project = build :project, starts_at: Date.today, ends_at: (Date.today + 1)
+      project.must_be :valid?
     end
   end
 end
