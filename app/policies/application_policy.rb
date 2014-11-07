@@ -12,7 +12,7 @@ class ApplicationPolicy
   def show?    ; scope.where(id: record.id).exists? ; end
   def create?  ; false                              ; end
   def new?     ; create?                            ; end
-  def update?  ; false                              ; end
+  def update?  ; user == record                     ; end
   def edit?    ; update?                            ; end
   def destroy? ; false                              ; end
 

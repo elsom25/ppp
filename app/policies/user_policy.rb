@@ -2,14 +2,6 @@ class UserPolicy < ApplicationPolicy
   def index?   ; true ; end
   def destroy? ; true ; end
 
-  def update?
-    user == record
-  end
-
-  def show?
-    update?
-  end
-
   class Scope
     vattr_initialize :user, :scope
     def resolve
