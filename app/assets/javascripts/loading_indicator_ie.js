@@ -1,1 +1,1 @@
-$('.ie-spinner').show()
+$('.ie-spinner').show();
