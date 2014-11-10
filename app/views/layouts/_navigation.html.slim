@@ -10,8 +10,11 @@ nav.top-bar[data-topbar]
   .top-bar-section
     ul.right
       - if user_signed_in?
+        = nav_link 'Admin', upmin_path
+        li.divider
         = nav_link 'Users', users_path
         = nav_link current_user.name || 'Me', user_path(current_user)
+        li.divider
         = nav_link t('auth.logout'), destroy_user_session_path, method: 'delete'
       - else
         = nav_link t('auth.login'), new_user_session_path
