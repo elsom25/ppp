@@ -5,21 +5,18 @@ class ProjectsController < ApplicationController
   def index
     @projects = policy_scope(Project)
     authorize @projects
-    respond_with(@projects)
+    respond_with @projects
   end
 
   def show
-    respond_with(@project)
+    respond_with @project
   end
 
   def new
     @project = Project.new
     authorize @project
 
-    respond_with(@project)
-  end
-
-  def edit
+    respond_with @project
   end
 
   def create
@@ -27,17 +24,17 @@ class ProjectsController < ApplicationController
     authorize @project
 
     @project.save
-    respond_with(@project)
+    respond_with @project
   end
 
   def update
     @project.update(project_params)
-    respond_with(@project)
+    respond_with @project
   end
 
   def destroy
     @project.destroy
-    respond_with(@project)
+    respond_with @project
   end
 
 protected
