@@ -20,6 +20,7 @@ gem 'attr_extras'                             # Simplified PORO's
 gem 'duffel'                                  # Better project settings
 gem 'simple_form'                             # A nice form DSL
 gem 'annotate',             '>= 2.6.0'        # Adds some nice annotations to models
+gem 'upmin-admin', github: 'mbrookes/upmin-admin-ruby', ref: '38fe141e0ccc9c4c6cf5be386c245b56f6e9e450' # Admin Interface
 
 # Javascript
 gem 'jquery-rails'                            # jQuery

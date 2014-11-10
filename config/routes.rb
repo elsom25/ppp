@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users, skip: [:registrations]
 
-  resources :users, only: [:index, :update, :show]
-  resources :projects
-
   authenticated :user do
+    mount Upmin::Engine => '/admin'
+
+    resources :users, only: [:index, :update, :show]
+    resources :projects
+
     devise_scope :user do
       root to: 'users#index'
     end
