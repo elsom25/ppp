@@ -13,7 +13,7 @@ nav.top-bar[data-topbar]
         = nav_link 'Admin', upmin_path
         li.divider
         = nav_link 'Users', users_path
-        = nav_link current_user.name || 'Me', user_path(current_user)
+        = nav_link 'Projects', projects_path
         li.divider
         = nav_link t('auth.logout'), destroy_user_session_path, method: 'delete'
       - else
