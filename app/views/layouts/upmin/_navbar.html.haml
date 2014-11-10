@@ -1,0 +1,17 @@
+.navbar.navbar-default.navbar-static-top
+  .container
+    .navbar-header
+      = link_to "#{t('app.title')} Admin", root_path, class: 'navbar-brand'
+      %button.navbar-toggle{"data-target" => "#navbar-main", "data-toggle" => "collapse", type: "button"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+    #navbar-main.navbar-collapse.collapse
+      %ul.nav.navbar-nav
+        - Upmin::Model.all.each do |m|
+          %li= link_to m.humanized_name(:plural), m.search_path
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          = link_to main_app.root_path do
+            %i.fa.fa-sign-out
+            #{t('app.title')} App
